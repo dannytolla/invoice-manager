@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  // directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model User {
+  id           String    @id
+  name         String
+  username     String?   @unique
+  email        String?   @unique
+  passwordHash String?
+  googleId     String?   @unique
+  sessions     Session[]
+  invoices     Invoice[]
+
+  createdAt DateTime @default(now())
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Invoice {
+  id            String   @id @default(cuid())
+  invoiceNumber String   @unique
+  userId        String
+  total         Float
+  dueDate       DateTime
+
+  clientName  String
+  clientEmail String
+  description String
+  status      Status   @default(PENDING)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items Item[]
+
+  @@map("invoices")
+}
+
+model Item {
+  id        String @id @default(cuid())
+  invoiceId String
+
+  name     String
+  quantity String
+  price    String
+  total    String?
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@map("items")
+}
+
+enum Status {
+  PAID
+  PENDING
+  DRAFT
+}
