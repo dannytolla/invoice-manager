@@ -1,14 +1,14 @@
 "use server";
 
+import { isRedirectError } from "next/dist/client/components/redirect";
+import { generateIdFromEntropySize } from "lucia";
+import { cookies } from "next/headers";
+import { hash } from "@node-rs/argon2";
+import { redirect } from "next/navigation";
+
 import { lucia } from "@/auth";
 import prisma from "@/lib/prisma";
-// import streamServerClient from "@/lib/stream";
 import { signUpSchema, SignUpValues } from "@/lib/validation";
-import { generateIdFromEntropySize } from "lucia";
-import { hash } from "@node-rs/argon2";
-import { isRedirectError } from "next/dist/client/components/redirect";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export async function signUp(
   credentials: SignUpValues
