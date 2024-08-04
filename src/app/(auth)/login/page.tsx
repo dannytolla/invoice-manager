@@ -17,7 +17,7 @@ export default function Page() {
           <h1 className="text-center text-2xl font-bold">
             Login to Invoice Manager Account
           </h1>
-          <div className="space-y-5">
+          <div className="space-y-4">
             <GoogleSignInButton />
             <div className="flex items-center gap-3">
               <div className="h-px flex-1 bg-muted" />
@@ -29,6 +29,18 @@ export default function Page() {
               Don&apos;t have an account?{" "}
               <span className="text-blue-500">Sign up</span>
             </Link>
+          </div>
+          <div className="">
+            <h1 className="text-center text-lg font-medium">
+              Test Credentials
+            </h1>
+            <p className="text-muted-foreground text-sm">
+              Email: <span className="text-black">test@gmail.com</span>
+            </p>
+            <p className="text-muted-foreground text-sm">
+              Password:
+              <span className="text-black"> 12345678</span>
+            </p>
           </div>
         </div>
       </div>
