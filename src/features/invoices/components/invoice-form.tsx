@@ -2,13 +2,14 @@ import { z } from "zod";
 import { Trash } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues, useFieldArray } from "react-hook-form";
-import { useForm, Controller, Control } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
 import { DatePicker } from "@/components/date-picker";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
+  FormField,
   FormItem,
   FormLabel,
   FormMessage,
@@ -107,9 +108,9 @@ export const InvoiceForm = ({
           placeholder="Add invoice number"
           disabled={disabled}
         />
-        <Controller
-          control={form.control}
+        <FormField
           name="dueDate"
+          control={form.control}
           render={({ field }) => (
             <FormItem>
               <FormLabel>Invoice Due Date</FormLabel>
