@@ -15,8 +15,13 @@ import { columns } from "./invoice/columns";
 const InvoicePage = () => {
   const newInvoice = useNewInvoice();
   const invoicesQuery = useGetInvoices();
+  const reportMutation = useCreateReport();
 
   const invoices = invoicesQuery.data || [];
+
+  const handleExcelExport = async () => {
+    await reportMutation.mutateAsync();
+  };
 
   if (invoicesQuery.isLoading) {
     return (
@@ -51,6 +56,15 @@ const InvoicePage = () => {
               className="w-full lg:w-auto"
             >
               <Plus className="mr-2 size-4" /> Add new
+            </Button>
+
+            <Button
+              size="sm"
+              onClick={handleExcelExport}
+              className="w-full lg:w-auto"
+            >
+              <Download className="mr-2 size-4" />
+              {reportMutation.isPending ? "Exporting..." : "Export Excel"}
             </Button>
           </div>
         </CardHeader>
