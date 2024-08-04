@@ -11,7 +11,7 @@ export const WelcomeMsg = () => {
         Welcome back{user ? ", " : " "}
         {user?.name} 👋
       </h2>
-      <p className="text-sm text-[#98bcf6] lg:text-base">
+      <p className="text-sm text-[#aec8f2] lg:text-base">
         This is your dashboard, here you can manage your invoices and clients.
       </p>
     </div>
