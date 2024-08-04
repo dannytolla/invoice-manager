@@ -11,8 +11,8 @@ interface InvoiceInfoProps {
 
 const InvoiceInfo: React.FC<InvoiceInfoProps> = ({ invoice }) => {
   return (
-    <div className="overflow-y-auto rounded-2xl md:mx-20 border border-slate-100 shadow-xl bg-white dark:bg-[#252945]">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 p-6 rounded-md text-gray-500 font-medium bg-[#f3f5f8] dark:bg-[#1b1d23]">
+    <div className="overflow-y-auto rounded-2xl md:mx-20 border border-slate-100 shadow-xl bg-white">
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-6 p-6 rounded-md text-gray-500 font-medium bg-[#f3f5f8] ">
         {/* Invoice Number and Description */}
         <div className="flex flex-col gap-2">
           <div className="flex flex-col">
@@ -58,13 +58,22 @@ const InvoiceInfo: React.FC<InvoiceInfoProps> = ({ invoice }) => {
             </span>
           </div>
         </div>
+
+        <div className="flex flex-col ">
+          <span className="text-sm">Bill City</span>
+          <div className="flex flex-col">
+            <span className="text-base font-bold text-primary">
+              {invoice.city}
+            </span>
+          </div>
+        </div>
       </div>
 
       {/* Items Container */}
-      <div className="w-full mt-8 rounded-md overflow-hidden bg-white dark:bg-[#1b1d23]">
+      <div className="w-full mt-8 rounded-md overflow-hidden bg-white">
         <InvoiceInfoItemList items={invoice.items} />
 
-        <div className="p-6 bg-[#373B53] dark:bg-[#0C0E16] flex justify-between items-center text-white">
+        <div className="p-6 bg-[#373B53] flex justify-between items-center text-white">
           <span>Amount Due</span>
           <span className="text-2xl font-bold">
             ${formatNumber(invoice.total)}

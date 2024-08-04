@@ -7,7 +7,7 @@ interface InvoiceInfoItemListProps {
 
 const InvoiceInfoItemList: React.FC<InvoiceInfoItemListProps> = ({ items }) => {
   return (
-    <div className="p-4 sm:p-8 bg-[#F9FAFE] dark:bg-[#252945] overflow-x-auto">
+    <div className="p-4 sm:p-8 bg-[#F9FAFE] overflow-x-auto">
       {/* Table head */}
       <div className="grid grid-cols-4 sm:grid-cols-9 mb-4">
         <span className="col-span-1 text-left">#</span>
@@ -27,7 +27,7 @@ const InvoiceInfoItemList: React.FC<InvoiceInfoItemListProps> = ({ items }) => {
             <span className="col-span-1 text-left">{index + 1}</span>
             <div className="col-span-2 sm:col-span-3 flex flex-col gap-1">
               <span>{item.name}</span>
-              <span className="text-sm text-[#7E88C3] dark:text-[#888EB0] sm:hidden">
+              <span className="text-sm text-[#7E88C3] sm:hidden">
                 {item.quantity} x ${item.price}
               </span>
             </div>
