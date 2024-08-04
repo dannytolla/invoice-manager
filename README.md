@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Invoice Management System
 
-## Getting Started
+This project is a Next.js application designed to manage invoices through CRUD operations (Create, Read, Update, Delete). It also includes features to generate PDF files for individual invoices and Excel files for all invoices. The application utilizes Shadcn for UI components, TailwindCSS for styling, Prisma as the ORM, PostgreSQL as the database, and Lucia Auth for authentication.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **CRUD Operations**: Create, read, update, and delete invoices.
+- **PDF Generation**: Generate a PDF for a single invoice.
+- **Excel Export**: Export all invoices to an Excel file.
+- **Responsive Design**: Utilizes TailwindCSS for a responsive and modern UI.
+- **Database Integration**: Uses Prisma with PostgreSQL for efficient data management.
+- **Authentication**: Includes user authentication with Lucia Auth.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: A React framework for building server-rendered applications.
+- **Shadcn**: A UI component library for React.
+- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
+- **Prisma**: A modern ORM for Node.js and TypeScript.
+- **PostgreSQL**: A powerful, open-source object-relational database system.
+- **Lucia Auth**: An authentication library for Next.js applications.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Prerequisites
 
-## Learn More
+Before you begin, ensure you have met the following requirements:
 
-To learn more about Next.js, take a look at the following resources:
+- **Node.js**: Version 14.x or later.
+- **npm**: Version 6.x or later.
+- **PostgreSQL**: Installed and running.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Clone the repository**:
 
-## Deploy on Vercel
+   ```bash
+   git clone https://github.com/dannytolla/invoice-manager
+   cd invoice-manager
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install dependencies**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   pnpm install
+   ```
+
+3. **Set up the database**:
+
+   - Create a PostgreSQL database.
+   - Update the `.env` file with your database credentials.
+
+4. **Run Prisma migrations**:
+
+   ```bash
+   npx prisma migrate dev
+   ```
+
+5. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+## Usage
+
+1. **Access the application**:
+   Open your browser and navigate to `http://localhost:3000`.
+
+2. **CRUD Operations**:
+
+   - **Create**: Click on the "Add new" button to add a new invoice.
+   - **Read**: View all invoices on the homepage.
+   - **Update**: Click on an invoice action dropdown to edit an invoice.
+   - **Delete**: Click on the delete button on action dropdown to delete an invoice.
+
+3. **PDF Generation**:
+
+   - Click on the "Generate PDF" button next to an invoice to download a PDF file.
+
+4. **Excel Export**:
+   - Click on the "Export Excel" button to download an Excel file containing all invoices.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+If you have any questions or suggestions, feel free to open an issue or contact the maintainers directly.
+
+---
+
+Happy Coding! 🚀
