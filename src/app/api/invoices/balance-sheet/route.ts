@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { generateBalanceSheet } from "@/features/invoices/api/use-report-generate-invoice";
+import { generateBalanceSheet } from "@/features/export/template";
 
 export async function GET() {
   try {

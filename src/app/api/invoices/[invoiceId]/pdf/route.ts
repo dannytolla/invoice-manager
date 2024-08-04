@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { generateInvoicePDF } from "@/features/invoices/api/use-report-generate-invoice";
+import { generateInvoicePDF } from "@/features/export/template";
 
 export async function GET(
   request: NextRequest,
