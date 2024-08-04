@@ -92,25 +92,6 @@ export const columns: ColumnDef<ResponseType>[] = [
       );
     },
   },
-  // {
-  //   accessorKey: "items_length",
-  //   header: ({ column }) => {
-  //     return (
-  //       <Button
-  //         variant="ghost"
-  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-  //       >
-  //         Total Items
-  //         <ArrowUpDown className="ml-2 h-4 w-4" />
-  //       </Button>
-  //     );
-  //   },
-  //   cell: ({ row }) => {
-  //     const items = row.getValue("items") as Item[];
-
-  //     return <span className="ml-10">{items.length}</span>;
-  //   },
-  // },
   {
     accessorKey: "items",
     header: ({ column }) => {

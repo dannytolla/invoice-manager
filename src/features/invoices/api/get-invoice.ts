@@ -37,14 +37,3 @@ export async function getInvoiceById(params: IParams) {
     throw new Error(error);
   }
 }
-// export async function getInvoiceById(params: IParams) {
-//   const { invoiceId } = params;
-
-//   const response = await fetch(`/api/invoices/${invoiceId}`);
-
-//   if (!response.ok) throw new Error("Failed to fetch invoice.");
-
-//   const { data } = await response.json();
-
-//   return data;
-// }
